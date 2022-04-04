@@ -410,7 +410,7 @@ To accomplish so, I've completed three tasks:
 
 ---
 
-#### Generating a high amount of failed SSH login attempts:
+#### Generate a large number of unsuccessful SSH login attempts and check if Kibana detects them:
 
 These attempts were made to create To produce unsuccessful attempts, I purposefully tried to connect to my Web-1 web server from the Jump Box rather than from my Ansible container (the server can't authenticate my private key outside of the container). The ELK Stack scripts all make reference to [Elk_Stack_scripts.sh](./Linux/Elk_Stack_scripts.sh)
 
@@ -440,7 +440,7 @@ while true; do for i in {5..6}; do ssh Rattanjot@10.0.0.$i; done
 
 Next, I'd like to ensure that'metricbeat' is operational. I'll accomplish this by running a linux stress test. 
 
-#### Increasing the CPU use on my web servers (Web-1, Web-2) and verifying that Kibana is gathering data.
+#### Generate a lot of CPU utilisation on my web servers and check to see whether Kibana picks it up.
 
 1. With the following command, I launch my Ansible container from my Jump Box.:
 
@@ -471,7 +471,7 @@ sudo stress --cpu 1
 Next, go to the Metrics tab for that VM in Kibana and compare the CPU utilisation of two web servers to determine if metricbeat is recording the rise in CPU usage caused by our stress command:
 ![cpu stress test results](./Resources/img/cpu%20usage%202.png)
 
-#### Make a large number of web queries to both web servers and verify that Kibana is receiving them. 
+#### Send a large number of HTTP requests to my web servers and verify that Kibana is receiving them. 
 
 This time, we'll send a large number of HTTP requests to one of my web servers. To accomplish so, I'll use the command 'wget' to execute a DOS attack.
 

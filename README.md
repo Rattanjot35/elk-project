@@ -489,9 +489,6 @@ This time, we'll send a large number of HTTP requests to one of my web servers. 
         wget 10.0.0.5
      ```
 
-Output of the command:
-
-![index html download](./Resources/Images/index%20html%20download.png)
 
 4. Using the 'ls' command, verify that the file has been downloaded:
 
